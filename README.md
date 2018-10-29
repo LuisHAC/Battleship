@@ -2,7 +2,7 @@
 
 Aplicacion de aprendizaje de maquina.
 
-Por hacer:\n
+Por hacer:
   Tiros: Cuadrantes
   Tiros: Hit&Hunt
   BDD: Clarificar atributos
