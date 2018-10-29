@@ -12,10 +12,22 @@ namespace Battleship.Classes
         private Byte[,] matrix;
         private char type;
         private char[] status;
+        private List<Point> ShootingsLogs;
         //Type puede ser 'O' para el tablero de ofensiva o 'D' para el defensivo (donde se ponen los barcos)
         public Byte Value(int row, int column)
         {
             return matrix[row, column];
+        }
+        public bool Repeated(Point point)
+        {
+            foreach (Point p in ShootingsLogs)
+            {
+                if (p.X == point.X && p.Y == point.Y)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
         public char Type
         {
@@ -27,11 +39,24 @@ namespace Battleship.Classes
             get { return status; }
             set { status = value; }
         }
-        public Board()
+        public Board(bool Defense)
         {
             matrix = new byte[10, 10];
-            type = 'D';
+            if (Defense)
+                type = 'D';
+            else
+                type = 'O';
             status = new char[5];
+        }
+        public int LiveShips()
+        {
+            int count = 0;
+            foreach (char ship in status)
+            {
+                if (status[ship] == 'S')
+                    count++;
+            }
+            return count;
         }
 
     }

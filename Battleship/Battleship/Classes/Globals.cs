@@ -8,5 +8,8 @@ namespace Battleship.Classes
 {
     class Globals
     {
+        public static Board Offense = new Board(false);
+        public static Board Defense = new Board(true);
+         
     }
 }
