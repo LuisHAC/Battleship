@@ -11,8 +11,6 @@ namespace Battleship.Classes
         
         public Point Spiral()
         {
-            //Random RNG = new Random();
-            //int option = RNG.Next(1,5);
             int aux;
             Point point = new Point();
             aux = SpiralTurn % 4;
@@ -54,6 +52,51 @@ namespace Battleship.Classes
         public Point Quadrants()
         {
             return null;
+        }
+
+        public Point Hunt(Point root, char dir)
+        {
+            Point point = new Point();
+            Random RNG = new Random();
+            int option = RNG.Next(1, 5);
+            point = root;
+            if (dir.Equals(null))
+            {
+                switch (option)
+                {
+                    case 1:
+                        point.X++;
+                        break;
+                    case 2:
+                        point.X--;
+                        break;
+                    case 3:
+                        point.Y++;
+                        break;
+                    case 4:
+                        point.Y--;
+                        break;
+                }
+            }
+            else
+            {
+                switch (dir)
+                {
+                    case 'R':
+                        point.X++;
+                        break;
+                    case 'L':
+                        point.X--;
+                        break;
+                    case 'U':
+                        point.Y++;
+                        break;
+                    case 'D':
+                        point.Y--;
+                        break;
+                }
+            }
+            return point;
         }
     }
 }
