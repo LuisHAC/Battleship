@@ -3,16 +3,24 @@ GO
 
 CREATE TABLE BOARD
 (
-	RowNo varchar(10),
-	ColNo nchar(10),
+	RowNo binary(1),
+	Value1 bit,
+	Value2 bit,
+	Value3 bit,
+	Value4 bit,
+	Value5 bit,
+	Value6 bit,
+	Value7 bit,
+	Value8 bit,
+	Value9 bit,
+	Value10 bit,
 	BoardID int,
-	CellValue int,
-	CONSTRAINT PK_BOARD PRIMARY KEY (RowNo, ColNo, BoardID)	
+	CONSTRAINT PK_BOARD PRIMARY KEY (RowNo, BoardID)
 )
 GO
 
 CREATE UNIQUE NONCLUSTERED INDEX IX_Matrices ON dbo.BOARD
-    (ColNo, RowNo); 
+    (RowNo); 
 GO
 
 CREATE TABLE STRATEGIES
