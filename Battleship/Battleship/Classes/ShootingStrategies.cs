@@ -11,6 +11,7 @@ namespace Battleship.Classes
         
         public Point Spiral()
         {
+            //Si puedes ver este comment es que funciono el merge
             //Random RNG = new Random();
             //int option = RNG.Next(1,5);
             int aux;
