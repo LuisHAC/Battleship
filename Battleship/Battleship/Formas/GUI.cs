@@ -23,30 +23,30 @@ namespace Battleship.Formas
 
         }
 
-        public void Draw(PaintEventArgs e)
-        {
-            DoubleBuffered = true;
-            int x = (GB_Map.Location.X + 5), y = (GB_Map.Location.Y + 5);
-            Rectangle square = new Rectangle(x, y, 10, 10);
-            Color color = new Color();
-            decimal value = new decimal();
-            decimal min = MinValue();
-            decimal max = MaxValue();
-            for (int i = 0; i < 10; i++)
+            public void Draw(PaintEventArgs e)
             {
-                for (int j = 0; j < 10; j++)
+                DoubleBuffered = true;
+                int x = (GB_Map.Location.X + 5), y = (GB_Map.Location.Y + 5);
+                Rectangle square = new Rectangle(x, y, 10, 10);
+                Color color = new Color();
+                decimal value = new decimal();
+                decimal min = MinValue();
+                decimal max = MaxValue();
+                for (int i = 0; i < 10; i++)
                 {
-                    value = Classes.Globals.Map.Value(i, j);
-                    color = HeatMapColor(value, min, max);
-                    square = new Rectangle(x, y, 10, 10);
-                    e.Graphics.DrawRectangle(new Pen(color), square);
-                    x += 10;
+                    for (int j = 0; j < 10; j++)
+                    {
+                        value = Classes.Globals.Map.Value(i, j);
+                        color = HeatMapColor(value, min, max);
+                        square = new Rectangle(x, y, 10, 10);
+                        e.Graphics.DrawRectangle(new Pen(color), square);
+                        x += 10;
+                    }
+                    y += 10;
+                    x = (GB_Map.Location.X + 5);
                 }
-                y += 10;
-                x = (GB_Map.Location.X + 5);
-            }
 
-        }
+            }
         public Color HeatMapColor(decimal value, decimal min, decimal max)
         {
             decimal val = (value - min) / (max - min);
