@@ -10,6 +10,7 @@ namespace Battleship.Classes
     {
         public static Board Offense = new Board(false);
         public static Board Defense = new Board(true);
+        public static Board Map = new Board(false);
          
     }
 }
