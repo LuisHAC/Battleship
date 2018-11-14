@@ -23,7 +23,7 @@ namespace Battleship.Formas
 
         }
 
-        public void Draw(PaintEventArgs e)
+        public void Draw(object sender, PaintEventArgs e)
         {
             DoubleBuffered = true;
             int x = (GB_Map.Location.X + 5), y = (GB_Map.Location.Y + 5);
@@ -71,6 +71,7 @@ namespace Battleship.Formas
             }
             return max;
         }
+
         private int MinValue()
         {
             int min = int.MaxValue;
@@ -87,6 +88,11 @@ namespace Battleship.Formas
                 }
             }
             return min;
+        }
+
+        private void LoadDataBase()
+        {
+
         }
     }
 }
