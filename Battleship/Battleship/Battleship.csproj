@@ -41,6 +41,7 @@
     <Compile Include="Classes\Board.cs" />
     <Compile Include="Classes\Conexion.cs" />
     <Compile Include="Classes\Globals.cs" />
+    <Compile Include="Classes\Overwrite.cs" />
     <Compile Include="Classes\Point.cs" />
     <Compile Include="Classes\Ship.cs" />
     <Compile Include="Classes\ShootingStrategies.cs" />

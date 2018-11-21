@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 namespace Battleship.Classes
 {
@@ -13,8 +14,10 @@ namespace Battleship.Classes
                                     "Initial Catalog=BATTLESHIP;" + // Catalogo a utilizar
                                     "User Id=sa;" + //Usuario del servidor
                                     "Password=LAPTOP-S5O159KO;connect timeout=50"; //Password del usuario
+
+        public static SqlConnection oConexion = new SqlConnection(StringConexion);
     }
 
-    public SqlConnection oConexion = new SqlConnection();
+
 
 }
