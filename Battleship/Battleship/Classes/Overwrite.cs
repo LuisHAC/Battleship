@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace Battleship.Classes
 {
@@ -10,43 +12,57 @@ namespace Battleship.Classes
     {
         private Board board;
 
-        public void Save(Board newBoard, bool Mode) //true if Defense, false if Offense
+        public void Save(Board newBoard, bool Mode, int stratID, char PhatW) //true if Defense, false if Offense
         {
             try
             {
                 board = newBoard;
-                int[] row1 = new int[10];
-                int[] row2 = new int[10];
-                int[] row3 = new int[10];
-                int[] row4 = new int[10];
-                int[] row5 = new int[10];
-                int[] row6 = new int[10];
-                int[] row7 = new int[10];
-                int[] row8 = new int[10];
-                int[] row9 = new int[10];
-                int[] row10 = new int[10];
+                int BoardID = 1;
+                Conexion conexion = new Conexion();
+                SqlCommand sqlcom = new SqlCommand();
+                string smallquery = "Select BoardId from Board Order by Desc";
+
+                sqlcom.Connection = conexion.oConexion;
+                sqlcom.CommandText = smallquery;
+                sqlcom.CommandType = CommandType.Text;
+                SqlDataAdapter sda = new SqlDataAdapter(sqlcom);
+                DataTable dt = new DataTable();
+                conexion.oConexion.Open();
+                sda.Fill(dt);
+                conexion.oConexion.Close();
+                BoardID = int.Parse(dt.Rows[0]["BoardId"].ToString());
+                string sqlQuery1 = "";
                 for (int i = 0; i < 10; i++)
                 {
-                    row1[i] = board.Value(0, i);
-                    row2[i] = board.Value(1, i);
-                    row3[i] = board.Value(2, i);
-                    row4[i] = board.Value(3, i);
-                    row5[i] = board.Value(4, i);
-                    row6[i] = board.Value(5, i);
-                    row7[i] = board.Value(6, i);
-                    row8[i] = board.Value(7, i);
-                    row9[i] = board.Value(8, i);
-                    row10[i] = board.Value(9, i);
+                    sqlQuery1 += "INSERT INTO " +
+                        "BOARD " +
+                        "VALUES (" + i + ", " + getBit(board.Value(i, 0)) + ", " + getBit(board.Value(i, 1)) + ", " + getBit(board.Value(i, 2)) + ", " +
+                        "" + getBit(board.Value(i, 3)) + ", " + getBit(board.Value(i, 4)) + ", " + getBit(board.Value(i, 5)) + ", " +
+                        "" + getBit(board.Value(i, 6)) + ", " + getBit(board.Value(i, 7)) + ", " + getBit(board.Value(i, 8)) + ", " +
+                        "" + getBit(board.Value(i, 9)) + ", " + BoardID + ", " + Mode + ") ";
                 }
+                dt = new DataTable();
+                sqlcom.CommandText = sqlQuery1;
+                sda = new SqlDataAdapter(sqlcom);
+                conexion.oConexion.Open();
+                sda.Fill(dt);
+                conexion.oConexion.Close();
+
 
                 String sqlQuery = "";
                 sqlQuery += "INSERT INTO ";
                 if (Mode)
                     sqlQuery += " DEFENSEEXPERIENCE ";
                 else
-                    sqlQuery += " OFFENSEEXPERIENCE"
-                Conexion conexion = new Conexion();
-
+                    sqlQuery += " OFFENSEEXPERIENCE ";
+                sqlQuery += "VALUES (" + BoardID + ", " + stratID + ", " + board.Shots() + ", null, null, "+board.Logs()+", " +
+                    ""+ (5 - board.LiveShips()) +", " + board.Shots() + ", " + PhatW + ")";
+                dt = new DataTable();
+                sqlcom.CommandText = sqlQuery;
+                sda = new SqlDataAdapter(sqlcom);
+                conexion.oConexion.Open();
+                sda.Fill(dt);
+                conexion.oConexion.Close();
             }
             catch (Exception)
             {
@@ -57,6 +73,21 @@ namespace Battleship.Classes
         private void SaveToSql(Board newBoard)
         {
 
+        }
+
+        private string getBit(int x)
+        {
+            switch (x)
+            {
+                case 0:
+                    return "null";
+                case 1:
+                    return "0";
+                case 2:
+                    return "1";
+                default:
+                    return null;
+            }
         }
     }
 }

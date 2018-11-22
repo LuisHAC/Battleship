@@ -58,6 +58,55 @@ namespace Battleship.Classes
             }
             return count;
         }
+        public string Logs()
+        {
+            string log = "";
+            foreach (Point p in ShootingsLogs)
+            {
+                switch (p.X)
+                {
+                    case 0:
+                        log += "A";
+                        break;
+                    case 1:
+                        log += "B";
+                        break;
+                    case 2:
+                        log += "C";
+                        break;
+                    case 3:
+                        log += "D";
+                        break;
+                    case 4:
+                        log += "E";
+                        break;
+                    case 5:
+                        log += "F";
+                        break;
+                    case 6:
+                        log += "G";
+                        break;
+                    case 7:
+                        log += "H";
+                        break;
+                    case 8:
+                        log += "I";
+                        break;
+                    case 9:
+                        log += "J";
+                        break;
+                    default:
+                        log += "";
+                        break;
+                }
+                log += p.Y;
+            }
+            return log;
+        }
+        public int Shots()
+        {
+            return ShootingsLogs.Count();
+        }
 
     }
 }

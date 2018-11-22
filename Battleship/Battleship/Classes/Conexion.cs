@@ -15,7 +15,7 @@ namespace Battleship.Classes
                                     "User Id=sa;" + //Usuario del servidor
                                     "Password=LAPTOP-S5O159KO;connect timeout=50"; //Password del usuario
 
-        public static SqlConnection oConexion = new SqlConnection(StringConexion);
+        public SqlConnection oConexion = new SqlConnection(StringConexion);
     }
 
 
