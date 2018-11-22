@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace Battleship.Formas
@@ -90,8 +91,23 @@ namespace Battleship.Formas
             return min;
         }
 
-        private void LoadDataBase()
+        private void HeatUp()
         {
+            var conexion = new Classes.Conexion();
+            SqlCommand sqlcom = new SqlCommand();
+            string Query = "Select SUM(Value1), SUM(Value2), SUM(Value3), SUM(Value3) " +
+                ", SUM(Value5), SUM(Value6), SUM(Value7), SUM(Value8) " +
+                ", SUM(Value9), SUM(Value10) " +
+                " FROM BOARD " +
+                "GROUP BY Row1, Row2, Row3, Row4, Row5, Row6, Row7, Row8, Row9, Row10";
+            sqlcom.Connection = conexion.oConexion;
+            sqlcom.CommandText = Query;
+            sqlcom.CommandType = CommandType.Text;
+            SqlDataAdapter sda = new SqlDataAdapter(sqlcom);
+            DataTable dt = new DataTable();
+            conexion.oConexion.Open();
+            sda.Fill(dt);
+            conexion.oConexion.Close();
 
         }
     }
