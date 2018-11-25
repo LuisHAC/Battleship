@@ -100,14 +100,25 @@ namespace Battleship.Formas
                 ", SUM(Value9), SUM(Value10) " +
                 " FROM BOARD " +
                 "GROUP BY Row1, Row2, Row3, Row4, Row5, Row6, Row7, Row8, Row9, Row10";
-            sqlcom.Connection = conexion.oConexion;
-            sqlcom.CommandText = Query;
-            sqlcom.CommandType = CommandType.Text;
-            SqlDataAdapter sda = new SqlDataAdapter(sqlcom);
-            DataTable dt = new DataTable();
-            conexion.oConexion.Open();
-            sda.Fill(dt);
-            conexion.oConexion.Close();
+            try
+            {
+                sqlcom.Connection = conexion.oConexion;
+                conexion.oConexion.Open();
+                
+                sqlcom.CommandText = Query;
+                sqlcom.CommandType = CommandType.Text;
+                SqlDataAdapter sda = new SqlDataAdapter(sqlcom);
+                DataTable dt = new DataTable();          
+                sda.Fill(dt);
+            }
+            catch(Exception e)
+            {
+
+            }
+            finally
+            {
+                conexion.oConexion.Close();
+            }
 
         }
     }
