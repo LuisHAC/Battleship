@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Data;
 namespace Battleship.Classes
 {
     class Board
     {
 
-        private Byte[,] matrix;
+        private int[,] matrix;
         private char type;
         private char[] status;
         private List<Point> ShootingsLogs;
         //Type puede ser 'O' para el tablero de ofensiva o 'D' para el defensivo (donde se ponen los barcos)
-        public Byte Value(int row, int column)
+        public int Value(int row, int column)
         {
-            return matrix[row, column];
+             return matrix[row, column];
         }
         public bool Repeated(Point point)
         {
@@ -41,7 +41,7 @@ namespace Battleship.Classes
         }
         public Board(bool Defense)
         {
-            matrix = new byte[10, 10];
+            matrix = new int[10, 10];
             if (Defense)
                 type = 'D';
             else
@@ -106,6 +106,17 @@ namespace Battleship.Classes
         public int Shots()
         {
             return ShootingsLogs.Count();
+        }
+
+        public void LoadFromDataTable(DataTable board)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    matrix[j, i] = int.Parse(board.Rows[i][j].ToString());
+                }
+            }
         }
 
     }

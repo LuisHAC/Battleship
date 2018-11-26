@@ -21,14 +21,15 @@ namespace Battleship.Formas
 
         private void GUI_Load(object sender, EventArgs e)
         {
-
+            HeatUp();
+            Paint += new PaintEventHandler(Draw);
         }
 
         public void Draw(object sender, PaintEventArgs e)
         {
             DoubleBuffered = true;
-            int x = (GB_Map.Location.X + 5), y = (GB_Map.Location.Y + 5);
-            Rectangle square = new Rectangle(x, y, 10, 10);
+            int x = 100, y = 100;
+            Rectangle square = new Rectangle(x, y, 30, 30);
             Color color = new Color();
             decimal value = new decimal();
             decimal min = MinValue();
@@ -39,12 +40,13 @@ namespace Battleship.Formas
                 {
                     value = Classes.Globals.Map.Value(i, j);
                     color = HeatMapColor(value, min, max);
-                    square = new Rectangle(x, y, 10, 10);
+                    square = new Rectangle(x, y, 30, 30);
+                    e.Graphics.FillRectangle(new SolidBrush(color), square);
                     e.Graphics.DrawRectangle(new Pen(color), square);
-                    x += 10;
+                    x += 30;
                 }
-                y += 10;
-                x = (GB_Map.Location.X + 5);
+                y += 30;
+                x = 100;
             }
 
         }
@@ -95,11 +97,18 @@ namespace Battleship.Formas
         {
             var conexion = new Classes.Conexion();
             SqlCommand sqlcom = new SqlCommand();
-            string Query = "Select SUM(Value1), SUM(Value2), SUM(Value3), SUM(Value3) " +
-                ", SUM(Value5), SUM(Value6), SUM(Value7), SUM(Value8) " +
-                ", SUM(Value9), SUM(Value10) " +
-                " FROM BOARD " +
-                "GROUP BY Row1, Row2, Row3, Row4, Row5, Row6, Row7, Row8, Row9, Row10";
+            string Query = "Select SUM(CASE(VALUE1) WHEN 1 THEN 2 WHEN 0 THEN 1 ELSE 0 END) AS 'Row1', " +
+        "SUM(CASE(VALUE2) WHEN 1 THEN 2 WHEN 0 THEN 1 ELSE 0 END) AS 'Row2', " +
+        "SUM(CASE(VALUE3) WHEN 1 THEN 2 WHEN 0 THEN 1 ELSE 0 END) AS 'Row3', " +
+        "SUM(CASE(VALUE4) WHEN 1 THEN 2 WHEN 0 THEN 1 ELSE 0 END) AS 'Row4', " +
+        "SUM(CASE(VALUE5) WHEN 1 THEN 2 WHEN 0 THEN 1 ELSE 0 END) AS 'Row5', " +
+        "SUM(CASE(VALUE6) WHEN 1 THEN 2 WHEN 0 THEN 1 ELSE 0 END) AS 'Row6', " +
+        "SUM(CASE(VALUE7) WHEN 1 THEN 2 WHEN 0 THEN 1 ELSE 0 END) AS 'Row7', " +
+        "SUM(CASE(VALUE8) WHEN 1 THEN 2 WHEN 0 THEN 1 ELSE 0 END) AS 'Row8', " +
+        "SUM(CASE(VALUE9) WHEN 1 THEN 2 WHEN 0 THEN 1 ELSE 0 END) AS 'Row9', " +
+        "SUM(CASE(VALUE10) WHEN 1 THEN 2 WHEN 0 THEN 1 ELSE 0 END) AS 'Row10' " +
+        "FROM BOARD  " +
+        "GROUP BY RowNo";
             sqlcom.Connection = conexion.oConexion;
             sqlcom.CommandText = Query;
             sqlcom.CommandType = CommandType.Text;
@@ -109,6 +118,8 @@ namespace Battleship.Formas
             sda.Fill(dt);
             conexion.oConexion.Close();
 
+            Classes.Globals.Map.LoadFromDataTable(dt);
+            
         }
     }
 }
