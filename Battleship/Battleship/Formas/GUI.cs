@@ -96,8 +96,8 @@ namespace Battleship.Formas
         private void HeatUp()
         {
             var conexion = new Classes.Conexion();
+            DataTable dt = new DataTable();
             SqlCommand sqlcom = new SqlCommand();
-<<<<<<< HEAD
             string Query = "Select SUM(CASE(VALUE1) WHEN 1 THEN 2 WHEN 0 THEN 1 ELSE 0 END) AS 'Row1', " +
         "SUM(CASE(VALUE2) WHEN 1 THEN 2 WHEN 0 THEN 1 ELSE 0 END) AS 'Row2', " +
         "SUM(CASE(VALUE3) WHEN 1 THEN 2 WHEN 0 THEN 1 ELSE 0 END) AS 'Row3', " +
@@ -110,20 +110,7 @@ namespace Battleship.Formas
         "SUM(CASE(VALUE10) WHEN 1 THEN 2 WHEN 0 THEN 1 ELSE 0 END) AS 'Row10' " +
         "FROM BOARD  " +
         "GROUP BY RowNo";
-            sqlcom.Connection = conexion.oConexion;
-            sqlcom.CommandText = Query;
-            sqlcom.CommandType = CommandType.Text;
-            SqlDataAdapter sda = new SqlDataAdapter(sqlcom);
-            DataTable dt = new DataTable();
-            conexion.oConexion.Open();
-            sda.Fill(dt);
-            conexion.oConexion.Close();
-=======
-            string Query = "Select SUM(Value1), SUM(Value2), SUM(Value3), SUM(Value3) " +
-                ", SUM(Value5), SUM(Value6), SUM(Value7), SUM(Value8) " +
-                ", SUM(Value9), SUM(Value10) " +
-                " FROM BOARD " +
-                "GROUP BY Row1, Row2, Row3, Row4, Row5, Row6, Row7, Row8, Row9, Row10";
+
             try
             {
                 sqlcom.Connection = conexion.oConexion;
@@ -132,7 +119,6 @@ namespace Battleship.Formas
                 sqlcom.CommandText = Query;
                 sqlcom.CommandType = CommandType.Text;
                 SqlDataAdapter sda = new SqlDataAdapter(sqlcom);
-                DataTable dt = new DataTable();          
                 sda.Fill(dt);
             }
             catch(Exception e)
@@ -143,7 +129,6 @@ namespace Battleship.Formas
             {
                 conexion.oConexion.Close();
             }
->>>>>>> d2ac0f3acad6b30e578d67e63cdad9e9f0d9af8b
 
             Classes.Globals.Map.LoadFromDataTable(dt);
             
