@@ -59,6 +59,26 @@ namespace Battleship.Formas
 
             return Color.FromArgb(255, r, g, b);
         }
+        public Color shootColor(int value)
+        {
+            if (value == 0)
+                return Color.Aqua;
+            else if (value == 1)
+                return Color.Crimson;
+            else return Color.Navy;
+        }
+
+        public Color placeColor(int value, int x, int y)
+        {
+            if (checkShips(x, y))
+                return Color.Black;
+            else if (value == 0)
+                return Color.Aqua;
+            else if (value == 1)
+                return Color.Crimson;
+            else return Color.Navy;
+        }
+
         private int MaxValue()
         {
             int max = 0;
@@ -123,7 +143,7 @@ namespace Battleship.Formas
             }
             catch(Exception e)
             {
-
+                MessageBox.Show("Error de conexion u.u");
             }
             finally
             {
@@ -132,6 +152,25 @@ namespace Battleship.Formas
 
             Classes.Globals.Map.LoadFromDataTable(dt);
             
+        }
+
+        private void RiseUp()// mostrara posicion de las naves seleccionadas y donde ha disparado la pc.  merge with HeatUp?
+        {
+        }
+
+        private bool checkShips(int x, int y)// checar si en esta posicion esta un barco.  
+        {
+            if ()
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // comienza el juego
         }
     }
 }
