@@ -79,6 +79,7 @@
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -94,7 +95,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(499, 32);
+            this.label2.Location = new System.Drawing.Point(497, 35);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 13);
@@ -115,7 +116,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(585, 32);
+            this.textBox1.Location = new System.Drawing.Point(583, 35);
             this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
@@ -124,7 +125,7 @@
             // 
             // GB_Map
             // 
-            this.GB_Map.Location = new System.Drawing.Point(502, 118);
+            this.GB_Map.Location = new System.Drawing.Point(500, 118);
             this.GB_Map.Margin = new System.Windows.Forms.Padding(2);
             this.GB_Map.Name = "GB_Map";
             this.GB_Map.Padding = new System.Windows.Forms.Padding(2);
@@ -135,7 +136,7 @@
             // 
             // GB_Offence
             // 
-            this.GB_Offence.Location = new System.Drawing.Point(123, 118);
+            this.GB_Offence.Location = new System.Drawing.Point(12, 118);
             this.GB_Offence.Margin = new System.Windows.Forms.Padding(2);
             this.GB_Offence.Name = "GB_Offence";
             this.GB_Offence.Padding = new System.Windows.Forms.Padding(2);
@@ -146,7 +147,7 @@
             // 
             // GB_Defence
             // 
-            this.GB_Defence.Location = new System.Drawing.Point(123, 366);
+            this.GB_Defence.Location = new System.Drawing.Point(12, 366);
             this.GB_Defence.Margin = new System.Windows.Forms.Padding(2);
             this.GB_Defence.Name = "GB_Defence";
             this.GB_Defence.Padding = new System.Windows.Forms.Padding(2);
@@ -158,7 +159,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(359, 136);
+            this.label3.Location = new System.Drawing.Point(248, 136);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 13);
@@ -168,7 +169,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(359, 149);
+            this.label4.Location = new System.Drawing.Point(248, 149);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(14, 13);
@@ -178,7 +179,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(394, 149);
+            this.label5.Location = new System.Drawing.Point(283, 149);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(14, 13);
@@ -187,14 +188,14 @@
             // 
             // xBox
             // 
-            this.xBox.Location = new System.Drawing.Point(362, 165);
+            this.xBox.Location = new System.Drawing.Point(251, 165);
             this.xBox.Name = "xBox";
             this.xBox.Size = new System.Drawing.Size(29, 20);
             this.xBox.TabIndex = 10;
             // 
             // yBox
             // 
-            this.yBox.Location = new System.Drawing.Point(397, 165);
+            this.yBox.Location = new System.Drawing.Point(286, 165);
             this.yBox.Name = "yBox";
             this.yBox.Size = new System.Drawing.Size(29, 20);
             this.yBox.TabIndex = 11;
@@ -203,7 +204,7 @@
             // 
             this.fireButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.fireButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fireButton.Location = new System.Drawing.Point(362, 192);
+            this.fireButton.Location = new System.Drawing.Point(251, 192);
             this.fireButton.Name = "fireButton";
             this.fireButton.Size = new System.Drawing.Size(75, 23);
             this.fireButton.TabIndex = 12;
@@ -213,7 +214,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(359, 382);
+            this.label6.Location = new System.Drawing.Point(248, 382);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(84, 13);
@@ -223,7 +224,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(359, 395);
+            this.label7.Location = new System.Drawing.Point(248, 395);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(55, 13);
@@ -232,14 +233,14 @@
             // 
             // cvYbox
             // 
-            this.cvYbox.Location = new System.Drawing.Point(397, 424);
+            this.cvYbox.Location = new System.Drawing.Point(286, 424);
             this.cvYbox.Name = "cvYbox";
             this.cvYbox.Size = new System.Drawing.Size(29, 20);
             this.cvYbox.TabIndex = 18;
             // 
             // cvXBox
             // 
-            this.cvXBox.Location = new System.Drawing.Point(362, 424);
+            this.cvXBox.Location = new System.Drawing.Point(251, 424);
             this.cvXBox.Name = "cvXBox";
             this.cvXBox.Size = new System.Drawing.Size(29, 20);
             this.cvXBox.TabIndex = 17;
@@ -247,7 +248,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(394, 408);
+            this.label8.Location = new System.Drawing.Point(283, 408);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(14, 13);
@@ -257,7 +258,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(359, 408);
+            this.label9.Location = new System.Drawing.Point(248, 408);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(14, 13);
@@ -267,7 +268,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(429, 408);
+            this.label10.Location = new System.Drawing.Point(318, 408);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(52, 13);
@@ -280,7 +281,7 @@
             this.cvCB.Items.AddRange(new object[] {
             "Up",
             "Down"});
-            this.cvCB.Location = new System.Drawing.Point(433, 425);
+            this.cvCB.Location = new System.Drawing.Point(322, 425);
             this.cvCB.Name = "cvCB";
             this.cvCB.Size = new System.Drawing.Size(121, 21);
             this.cvCB.TabIndex = 20;
@@ -288,7 +289,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(249, 35);
+            this.label11.Location = new System.Drawing.Point(283, 35);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(113, 13);
@@ -302,7 +303,7 @@
             this.bbCB.Items.AddRange(new object[] {
             "Up",
             "Down"});
-            this.bbCB.Location = new System.Drawing.Point(433, 477);
+            this.bbCB.Location = new System.Drawing.Point(322, 477);
             this.bbCB.Name = "bbCB";
             this.bbCB.Size = new System.Drawing.Size(121, 21);
             this.bbCB.TabIndex = 28;
@@ -310,7 +311,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(429, 460);
+            this.label12.Location = new System.Drawing.Point(318, 460);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(52, 13);
@@ -319,14 +320,14 @@
             // 
             // bbYBox
             // 
-            this.bbYBox.Location = new System.Drawing.Point(397, 476);
+            this.bbYBox.Location = new System.Drawing.Point(286, 476);
             this.bbYBox.Name = "bbYBox";
             this.bbYBox.Size = new System.Drawing.Size(29, 20);
             this.bbYBox.TabIndex = 26;
             // 
             // bbXBox
             // 
-            this.bbXBox.Location = new System.Drawing.Point(362, 476);
+            this.bbXBox.Location = new System.Drawing.Point(251, 476);
             this.bbXBox.Name = "bbXBox";
             this.bbXBox.Size = new System.Drawing.Size(29, 20);
             this.bbXBox.TabIndex = 25;
@@ -334,7 +335,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(394, 460);
+            this.label13.Location = new System.Drawing.Point(283, 460);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(14, 13);
@@ -344,7 +345,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(359, 460);
+            this.label14.Location = new System.Drawing.Point(248, 460);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(14, 13);
@@ -354,7 +355,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(359, 447);
+            this.label15.Location = new System.Drawing.Point(248, 447);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(71, 13);
@@ -367,7 +368,7 @@
             this.caCB.Items.AddRange(new object[] {
             "Up",
             "Down"});
-            this.caCB.Location = new System.Drawing.Point(433, 529);
+            this.caCB.Location = new System.Drawing.Point(322, 529);
             this.caCB.Name = "caCB";
             this.caCB.Size = new System.Drawing.Size(121, 21);
             this.caCB.TabIndex = 35;
@@ -375,7 +376,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(429, 512);
+            this.label16.Location = new System.Drawing.Point(318, 512);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(52, 13);
@@ -384,14 +385,14 @@
             // 
             // caYBox
             // 
-            this.caYBox.Location = new System.Drawing.Point(397, 528);
+            this.caYBox.Location = new System.Drawing.Point(286, 528);
             this.caYBox.Name = "caYBox";
             this.caYBox.Size = new System.Drawing.Size(29, 20);
             this.caYBox.TabIndex = 33;
             // 
             // caXBox
             // 
-            this.caXBox.Location = new System.Drawing.Point(362, 528);
+            this.caXBox.Location = new System.Drawing.Point(251, 528);
             this.caXBox.Name = "caXBox";
             this.caXBox.Size = new System.Drawing.Size(29, 20);
             this.caXBox.TabIndex = 32;
@@ -399,7 +400,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(394, 512);
+            this.label17.Location = new System.Drawing.Point(283, 512);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(14, 13);
@@ -409,7 +410,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(359, 512);
+            this.label18.Location = new System.Drawing.Point(248, 512);
             this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(14, 13);
@@ -419,7 +420,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(359, 499);
+            this.label19.Location = new System.Drawing.Point(248, 499);
             this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(57, 13);
@@ -432,7 +433,7 @@
             this.ddCB.Items.AddRange(new object[] {
             "Up",
             "Down"});
-            this.ddCB.Location = new System.Drawing.Point(433, 581);
+            this.ddCB.Location = new System.Drawing.Point(322, 581);
             this.ddCB.Name = "ddCB";
             this.ddCB.Size = new System.Drawing.Size(121, 21);
             this.ddCB.TabIndex = 42;
@@ -440,7 +441,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(429, 564);
+            this.label20.Location = new System.Drawing.Point(318, 564);
             this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(52, 13);
@@ -449,14 +450,14 @@
             // 
             // ddYBox
             // 
-            this.ddYBox.Location = new System.Drawing.Point(397, 580);
+            this.ddYBox.Location = new System.Drawing.Point(286, 580);
             this.ddYBox.Name = "ddYBox";
             this.ddYBox.Size = new System.Drawing.Size(29, 20);
             this.ddYBox.TabIndex = 40;
             // 
             // ddXBox
             // 
-            this.ddXBox.Location = new System.Drawing.Point(362, 580);
+            this.ddXBox.Location = new System.Drawing.Point(251, 580);
             this.ddXBox.Name = "ddXBox";
             this.ddXBox.Size = new System.Drawing.Size(29, 20);
             this.ddXBox.TabIndex = 39;
@@ -464,7 +465,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(394, 564);
+            this.label21.Location = new System.Drawing.Point(283, 564);
             this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(14, 13);
@@ -474,7 +475,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(359, 564);
+            this.label22.Location = new System.Drawing.Point(248, 564);
             this.label22.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(14, 13);
@@ -484,7 +485,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(359, 551);
+            this.label23.Location = new System.Drawing.Point(248, 551);
             this.label23.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(70, 13);
@@ -497,7 +498,7 @@
             this.ssCB.Items.AddRange(new object[] {
             "Up",
             "Down"});
-            this.ssCB.Location = new System.Drawing.Point(433, 633);
+            this.ssCB.Location = new System.Drawing.Point(322, 633);
             this.ssCB.Name = "ssCB";
             this.ssCB.Size = new System.Drawing.Size(121, 21);
             this.ssCB.TabIndex = 49;
@@ -505,7 +506,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(429, 616);
+            this.label24.Location = new System.Drawing.Point(318, 616);
             this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(52, 13);
@@ -514,14 +515,14 @@
             // 
             // ssYBox
             // 
-            this.ssYBox.Location = new System.Drawing.Point(397, 632);
+            this.ssYBox.Location = new System.Drawing.Point(286, 632);
             this.ssYBox.Name = "ssYBox";
             this.ssYBox.Size = new System.Drawing.Size(29, 20);
             this.ssYBox.TabIndex = 47;
             // 
             // ssXBox
             // 
-            this.ssXBox.Location = new System.Drawing.Point(362, 632);
+            this.ssXBox.Location = new System.Drawing.Point(251, 632);
             this.ssXBox.Name = "ssXBox";
             this.ssXBox.Size = new System.Drawing.Size(29, 20);
             this.ssXBox.TabIndex = 46;
@@ -529,7 +530,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(394, 616);
+            this.label25.Location = new System.Drawing.Point(283, 616);
             this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(14, 13);
@@ -539,7 +540,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(359, 616);
+            this.label26.Location = new System.Drawing.Point(248, 616);
             this.label26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(14, 13);
@@ -549,7 +550,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(359, 603);
+            this.label27.Location = new System.Drawing.Point(248, 603);
             this.label27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(75, 13);
@@ -560,18 +561,31 @@
             // 
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(362, 660);
+            this.button1.Location = new System.Drawing.Point(251, 660);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(192, 23);
             this.button1.TabIndex = 50;
             this.button1.Text = "LAUNCH BATTLESHIPS!!";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // button2
+            // 
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(184, 24);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 51;
+            this.button2.Text = "Start!";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(736, 774);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.ssCB);
             this.Controls.Add(this.label24);
@@ -685,5 +699,6 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
