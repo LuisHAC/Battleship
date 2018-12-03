@@ -13,6 +13,15 @@ namespace Battleship.Formas
 {
     public partial class GUI : Form
     {
+        Classes.ShootingStrategies strategy;
+        Classes.Ship Carrier = new Classes.Ship();
+        Classes.Ship Battleship = new Classes.Ship();
+        Classes.Ship Cruiser = new Classes.Ship();
+        Classes.Ship Destroyer = new Classes.Ship();
+        Classes.Ship Submarine = new Classes.Ship();
+
+
+        public int atinados = 0;
 
         public GUI()
         {
@@ -160,17 +169,189 @@ namespace Battleship.Formas
 
         private bool checkShips(int x, int y)// checar si en esta posicion esta un barco.  
         {
-            if ()
+            //provando Carrier
+            for (int aux = 0; aux < Carrier.Size; aux++)
             {
-                return true;
+                if (Carrier.Direction)
+                {
+                    if (x == (Carrier.X + aux) && Carrier.Y == y)
+                        return true;
+                }
+                else
+                {
+                    if (y == (Carrier.Y + aux) && x == Carrier.X)
+                        return true;
+                }
             }
-            else
-                return false;
+            //provando Battleship
+            for (int aux = 0; aux < Battleship.Size; aux++)
+            {
+                if (Battleship.Direction)
+                {
+                    if (x == (Battleship.X + aux) && Battleship.Y == y)
+                        return true;
+                }
+                else
+                {
+                    if (y == (Battleship.Y + aux) && x == Battleship.X)
+                        return true;
+                }
+            }
+            //provando Cruiser
+            for (int aux = 0; aux < Cruiser.Size; aux++)
+            {
+                if (Cruiser.Direction)
+                {
+                    if (x == (Cruiser.X + aux) && Cruiser.Y == y)
+                        return true;
+                }
+                else
+                {
+                    if (y == (Cruiser.Y + aux) && x == Cruiser.X)
+                        return true;
+                }
+            }
+            //provando Destroyer
+            for (int aux = 0; aux < Destroyer.Size; aux++)
+            {
+                if (Destroyer.Direction)
+                {
+                    if (x == (Destroyer.X + aux) && Destroyer.Y == y)
+                        return true;
+                }
+                else
+                {
+                    if (y == (Destroyer.Y + aux) && x == Destroyer.X)
+                        return true;
+                }
+            }
+            //provando Submarine
+            for (int aux = 0; aux < Submarine.Size; aux++)
+            {
+                if (Submarine.Direction)
+                {
+                    if (x == (Submarine.X + aux) && Submarine.Y == y)
+                        return true;
+                }
+                else
+                {
+                    if (y == (Submarine.Y + aux) && x == Submarine.X)
+                        return true;
+                }
+            }
+            return false;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // comienza el juego
+            if (stratCBox.Text != "")
+            {
+                button1.Enabled = true;
+                stratCBox.Enabled = false;
+                button2.Enabled = false;
+                button3.Enabled = true;
+            }
+            else
+                MessageBox.Show("Falta seleccionar el tipo de estrategia");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (caCB.Text != "" && caXBox.Text != "" && caYBox.Text != "" && cvCB.Text != "" && cvXBox.Text != "" && cvYbox.Text != "" && ddCB.Text != "" && ddXBox.Text != "" && ddYBox.Text != "" && bbCB.Text != "" && bbXBox.Text != "" && bbYBox.Text != "" && ssCB.Text != "" && ssXBox.Text != "" && ssYBox.Text != "")
+            {
+                //Carrier
+                {
+                    Carrier.Size = 5;
+                    Carrier.X = Convert.ToInt32(cvXBox.Text);
+                    Carrier.Y = Convert.ToInt32(cvYbox.Text);
+                    Carrier.Direction = cvCB.Text == "Horizontal" ? true : false;
+                    Carrier.validation();
+                }
+                //Battleship
+                {
+                    Battleship.Size = 4;
+                    Battleship.X = Convert.ToInt32(bbXBox.Text);
+                    Battleship.Y = Convert.ToInt32(bbYBox.Text);
+                    Battleship.Direction = bbCB.Text == "Horizontal" ? true : false;
+                    Battleship.validation();
+                }
+                //Cruiser
+                {
+                    Cruiser.Size = 3;
+                    Cruiser.X = Convert.ToInt32(caXBox.Text);
+                    Cruiser.Y = Convert.ToInt32(caYBox.Text);
+                    Cruiser.Direction = caCB.Text == "Horizontal" ? true : false;
+                    Cruiser.validation();
+                }
+                //Destroyer
+                {
+                    Destroyer.Size = 3;
+                    Destroyer.X = Convert.ToInt32(ddXBox.Text);
+                    Destroyer.Y = Convert.ToInt32(ddYBox.Text);
+                    Destroyer.Direction = ddCB.Text == "Horizontal" ? true : false;
+                    Destroyer.validation();
+                }
+                //Submarine
+                {
+                    Submarine.Size = 2;
+                    Submarine.X = Convert.ToInt32(ssXBox.Text);
+                    Submarine.Y = Convert.ToInt32(ssYBox.Text);
+                    Submarine.Direction = ssCB.Text == "Horizontal" ? true : false;
+                    Submarine.validation();
+                }
+
+                fireButton.Enabled = true;
+                button1.Enabled = false;
+            }
+            else
+                MessageBox.Show("Falta información");
+        }
+
+        private void fireButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Turno Usuario
+
+
+
+                //Turno Computadora
+                MessageBox.Show("Sigue el turno de la computadora");
+                Classes.Point punto = new Classes.Point();
+                switch (stratCBox.SelectedIndex)
+                {
+                    case 1:
+                        punto = strategy.Random();
+                        break;
+
+                    case 2:
+                        punto = strategy.Spiral();
+                        break;
+                    case 3:
+                        //punto = strategy.Quadrantes();
+                        break;
+                }
+                if (checkShips(punto.X, punto.Y))
+                    MessageBox.Show("Tiro: "+punto.X+","+punto.Y+" - Tiro del computador acertado");
+                else
+                    MessageBox.Show("Tiro: " + punto.X + "," + punto.Y + " - Tiro del computador fallido");
+            }
+            catch
+            {
+                if (xBox.Text == "" && yBox.Text == "")
+                    MessageBox.Show("Falta información");
+                else
+                    MessageBox.Show("Escribir solo números");
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            button2.Enabled = true;
+            stratCBox.Enabled = true;
+            button3.Enabled = false;
+            fireButton.Enabled = false;
+            button1.Enabled = false;
         }
     }
 }

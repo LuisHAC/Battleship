@@ -8,12 +8,15 @@ namespace Battleship.Classes
 {
     class Ship
     {
+
+
         #region Variables
         private int size;
         private int x;
         private int y;
         private bool direction;
         #endregion
+
         #region Get/Sets
         public int Size
         {
@@ -23,20 +26,29 @@ namespace Battleship.Classes
         public int X
         {
             get { return x; }
-            set { size = value; }
+            set { x = value; }
         }
         public int Y
         {
             get { return y; }
-            set { size = value; }
+            set { y = value; }
         }
         public bool Direction
         {
             get { return direction; }
             set { direction = value; }
         }
+
+        public void validation()
+        {
+            if (Direction)
+                while ((x + size) > 10)
+                    x--;
+            else
+                while ((y + size) > 10)
+                    y--;
+        }
         #endregion
-
-
     }
+
 }

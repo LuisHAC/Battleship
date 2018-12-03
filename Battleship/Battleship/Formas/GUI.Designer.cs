@@ -80,6 +80,7 @@
             this.label27 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -104,6 +105,7 @@
             // 
             // stratCBox
             // 
+            this.stratCBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.stratCBox.FormattingEnabled = true;
             this.stratCBox.Items.AddRange(new object[] {
             "Random",
@@ -202,6 +204,7 @@
             // 
             // fireButton
             // 
+            this.fireButton.Enabled = false;
             this.fireButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.fireButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fireButton.Location = new System.Drawing.Point(251, 192);
@@ -210,6 +213,7 @@
             this.fireButton.TabIndex = 12;
             this.fireButton.Text = "FIRE!!";
             this.fireButton.UseVisualStyleBackColor = true;
+            this.fireButton.Click += new System.EventHandler(this.fireButton_Click);
             // 
             // label6
             // 
@@ -277,10 +281,11 @@
             // 
             // cvCB
             // 
+            this.cvCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cvCB.FormattingEnabled = true;
             this.cvCB.Items.AddRange(new object[] {
-            "Up",
-            "Down"});
+            "Horizontal",
+            "Vertical"});
             this.cvCB.Location = new System.Drawing.Point(322, 425);
             this.cvCB.Name = "cvCB";
             this.cvCB.Size = new System.Drawing.Size(121, 21);
@@ -289,7 +294,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(283, 35);
+            this.label11.Location = new System.Drawing.Point(360, 29);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(113, 13);
@@ -299,10 +304,11 @@
             // 
             // bbCB
             // 
+            this.bbCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.bbCB.FormattingEnabled = true;
             this.bbCB.Items.AddRange(new object[] {
-            "Up",
-            "Down"});
+            "Horizontal",
+            "Vertical"});
             this.bbCB.Location = new System.Drawing.Point(322, 477);
             this.bbCB.Name = "bbCB";
             this.bbCB.Size = new System.Drawing.Size(121, 21);
@@ -364,10 +370,11 @@
             // 
             // caCB
             // 
+            this.caCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.caCB.FormattingEnabled = true;
             this.caCB.Items.AddRange(new object[] {
-            "Up",
-            "Down"});
+            "Horizontal",
+            "Vertical"});
             this.caCB.Location = new System.Drawing.Point(322, 529);
             this.caCB.Name = "caCB";
             this.caCB.Size = new System.Drawing.Size(121, 21);
@@ -429,10 +436,11 @@
             // 
             // ddCB
             // 
+            this.ddCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddCB.FormattingEnabled = true;
             this.ddCB.Items.AddRange(new object[] {
-            "Up",
-            "Down"});
+            "Horizontal",
+            "Vertical"});
             this.ddCB.Location = new System.Drawing.Point(322, 581);
             this.ddCB.Name = "ddCB";
             this.ddCB.Size = new System.Drawing.Size(121, 21);
@@ -494,10 +502,11 @@
             // 
             // ssCB
             // 
+            this.ssCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ssCB.FormattingEnabled = true;
             this.ssCB.Items.AddRange(new object[] {
-            "Up",
-            "Down"});
+            "Horizontal",
+            "Vertical"});
             this.ssCB.Location = new System.Drawing.Point(322, 633);
             this.ssCB.Name = "ssCB";
             this.ssCB.Size = new System.Drawing.Size(121, 21);
@@ -559,6 +568,7 @@
             // 
             // button1
             // 
+            this.button1.Enabled = false;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(251, 660);
@@ -567,6 +577,7 @@
             this.button1.TabIndex = 50;
             this.button1.Text = "LAUNCH BATTLESHIPS!!";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -580,11 +591,25 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // button3
+            // 
+            this.button3.Enabled = false;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(265, 25);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 52;
+            this.button3.Text = "Stop!";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(736, 774);
+            this.ClientSize = new System.Drawing.Size(736, 749);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.ssCB);
@@ -677,7 +702,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.ComboBox caCB;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox caYBox;
         private System.Windows.Forms.TextBox caXBox;
@@ -700,5 +724,7 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox caCB;
+        private System.Windows.Forms.Button button3;
     }
 }
