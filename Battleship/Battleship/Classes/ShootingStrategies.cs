@@ -33,6 +33,8 @@ namespace Battleship.Classes
                     point.Y = SpiralTurn / 4;
                     break;
                 default:
+                    point.X = SpiralTurn / 4;
+                    point.Y = SpiralTurn / 4;
                     break;
             }
             SpiralTurn++;

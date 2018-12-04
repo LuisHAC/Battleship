@@ -13,7 +13,7 @@ namespace Battleship.Formas
 {
     public partial class GUI : Form
     {
-        Classes.ShootingStrategies strategy;
+        Classes.ShootingStrategies strategy = new Classes.ShootingStrategies();
         Classes.Ship Carrier = new Classes.Ship();
         Classes.Ship Battleship = new Classes.Ship();
         Classes.Ship Cruiser = new Classes.Ship();
@@ -473,15 +473,15 @@ namespace Battleship.Formas
             Classes.Point punto = new Classes.Point();
             switch (stratCBox.SelectedIndex)
             {
-                case 1:
+                case 0:
                     punto = strategy.Random();
                     break;
 
-                case 2:
+                case 1:
                     punto = strategy.Spiral();
                     break;
 
-                case 3:
+                case 2:
                     punto = strategy.Quadrantes(Classes.Globals.Offense, 10, 0, 0);
                     break;
 
