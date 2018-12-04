@@ -22,6 +22,7 @@ namespace Battleship.Formas
 
         public bool ShipsLaunched = false;
         public int atinados = 0;
+        public bool esMiTurno = true, yaLosDibuje=false;
 
         public GUI()
         {
@@ -37,7 +38,7 @@ namespace Battleship.Formas
         public void Draw(object sender, PaintEventArgs e)
         {
             DoubleBuffered = true;
-            int x = 16, y = 145, x1 = 20, y1 = 410;
+            int x = 520, y = 145, x1 = 20, y1 = 410, x2 = 16, y2 = 145;
             Rectangle square = new Rectangle(x, y, 20, 20);
             Color color = new Color();
             decimal value = new decimal();
@@ -55,12 +56,16 @@ namespace Battleship.Formas
                         square = new Rectangle(xCarrier, yCarrier, 20, 20);
                         e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
                         xCarrier += 20;
+                        if(!yaLosDibuje)
+                            Classes.Globals.Defense.setValue(Carrier.X+i, Carrier.Y, -1);
                     }
                     else
                     {
                         square = new Rectangle(xCarrier, yCarrier, 20, 20);
                         e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
                         yCarrier += 20;
+                        if (!yaLosDibuje)
+                            Classes.Globals.Defense.setValue(Carrier.X, Carrier.Y+i, -1);
                     }
                 }
                 xCarrier = Battleship.X * 20 + 20;
@@ -72,12 +77,16 @@ namespace Battleship.Formas
                         square = new Rectangle(xCarrier, yCarrier, 20, 20);
                         e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
                         xCarrier += 20;
+                        if (!yaLosDibuje)
+                            Classes.Globals.Defense.setValue(Battleship.X + i, Battleship.Y, -1);
                     }
                     else
                     {
                         square = new Rectangle(xCarrier, yCarrier, 20, 20);
                         e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
                         yCarrier += 20;
+                        if (!yaLosDibuje)
+                            Classes.Globals.Defense.setValue(Battleship.X, Battleship.Y + i, -1);
                     }
                 }
 
@@ -90,12 +99,16 @@ namespace Battleship.Formas
                         square = new Rectangle(xCarrier, yCarrier, 20, 20);
                         e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
                         xCarrier += 20;
+                        if (!yaLosDibuje)
+                            Classes.Globals.Defense.setValue(Cruiser.X + i, Cruiser.Y, -1);
                     }
                     else
                     {
                         square = new Rectangle(xCarrier, yCarrier, 20, 20);
                         e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
                         yCarrier += 20;
+                        if (!yaLosDibuje)
+                            Classes.Globals.Defense.setValue(Cruiser.X, Cruiser.Y+i, -1);
                     }
                 }
 
@@ -108,12 +121,16 @@ namespace Battleship.Formas
                         square = new Rectangle(xCarrier, yCarrier, 20, 20);
                         e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
                         xCarrier += 20;
+                        if (!yaLosDibuje)
+                            Classes.Globals.Defense.setValue(Destroyer.X + i, Destroyer.Y, -1);
                     }
                     else
                     {
                         square = new Rectangle(xCarrier, yCarrier, 20, 20);
                         e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
                         yCarrier += 20;
+                        if (!yaLosDibuje)
+                            Classes.Globals.Defense.setValue(Destroyer.X, Destroyer.Y+i, -1);
                     }
                 }
 
@@ -126,12 +143,22 @@ namespace Battleship.Formas
                         square = new Rectangle(xCarrier, yCarrier, 20, 20);
                         e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
                         xCarrier += 20;
+                        if (!yaLosDibuje)
+                        {
+                            Classes.Globals.Defense.setValue(Submarine.X + i, Battleship.Y, -1);
+                            yaLosDibuje = true;
+                        }
                     }
                     else
                     {
                         square = new Rectangle(xCarrier, yCarrier, 20, 20);
                         e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
                         yCarrier += 20;
+                        if (!yaLosDibuje)
+                        {
+                            Classes.Globals.Defense.setValue(Submarine.X, Submarine.Y + i, -1);
+                            yaLosDibuje = true;
+                        }
                     }
                 }
 
@@ -142,22 +169,36 @@ namespace Battleship.Formas
                 for (int j = 0; j < 10; j++)
                 {
 
+                    
                     square = new Rectangle(x1, y1, 20, 20);
                     e.Graphics.DrawRectangle(new Pen(Color.Black), square);
                     square = new Rectangle(x, y, 20, 20);
-                    e.Graphics.FillRectangle(new SolidBrush(Color.Black), square);
-                    e.Graphics.DrawRectangle(new Pen(color), square);
                     value = Classes.Globals.Map.Value(i, j);
                     color = HeatMapColor(value, min, max);
+                    square = new Rectangle(x2, y2, 20, 20);
+                    e.Graphics.DrawRectangle(new Pen(Color.Black), square);
                     square = new Rectangle(x, y, 20, 20);
                     e.Graphics.FillRectangle(new SolidBrush(color), square);
-                    e.Graphics.DrawRectangle(new Pen(color), square);
+                    e.Graphics.DrawRectangle(new Pen(Color.Black), square);
+                    if (Classes.Globals.Defense.Value(i, j) > 0)
+                    {
+                        square = new Rectangle(x1 + 5, y1 + 5, 10, 10);
+                        e.Graphics.FillRectangle(new SolidBrush(Color.Red), square);
+                    }
+                    if (Classes.Globals.Offense.Value(i, j) > 0)
+                    {
+                        square = new Rectangle(x2 + 5, y2 + 5, 10, 10);
+                        e.Graphics.FillRectangle(new SolidBrush(Color.Red), square);
+                    }
                     x += 20;
                     x1 += 20;
+                    x2 += 20;
                 }
                 y1 += 20;
+                y2 += 20;
+                x2 = 16;
                 y += 20;
-                x = 16;
+                x = 520;
                 x1 = 20;
             }
         }
@@ -415,57 +456,82 @@ namespace Battleship.Formas
 
         private void fireButton_Click(object sender, EventArgs e)
         {
-            try
+            if (myTurn())
             {
-                DialogResult dialogResult = MessageBox.Show("acerto el tiro?", "ATENCION", MessageBoxButtons.YesNo);  
-                if(dialogResult == DialogResult.Yes)
+                try
                 {
-                    Classes.Globals.Offense.setValue(Convert.ToInt32(xBox.Text), Convert.ToInt32(yBox.Text), 2);
-                    dialogResult = DialogResult.No;
-                    Classes.Point punto = new Classes.Point();
-                    Classes.Point acertado = new Classes.Point(Convert.ToInt32(xBox.Text), Convert.ToInt32(yBox.Text));
-                    int x = 1;
-                    char c;
-                    Classes.Point regreso = new Classes.Point(Convert.ToInt32(xBox.Text), Convert.ToInt32(yBox.Text));
-                    while (dialogResult != DialogResult.Yes)
+                    TurnoLabel.Text = "Maquina";
+                    DialogResult dialogResult = MessageBox.Show("acerto el tiro?", "ATENCION", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
                     {
-                        if (x == 1)
-                            c = 'R';
-                        else if (x == 2)
-                            c = 'L';
-                        else if (x == 3)
-                            c = 'U';
-                        else
-                            c = 'D';
-                        punto = strategy.Hunt(acertado, c);
-                        textBox1.Text = punto.X.ToString() + "," + punto.Y.ToString();
-                        DialogResult d = MessageBox.Show("acerte?");
-                        if (d == DialogResult.Yes)
-                            acertado = punto;
-                        else if (x == 4)
+                        Classes.Globals.Offense.setValue(Convert.ToInt32(xBox.Text), Convert.ToInt32(yBox.Text), 2);
+                        dialogResult = DialogResult.No;
+                        Classes.Point punto = new Classes.Point();
+                        Classes.Point acertado = new Classes.Point(Convert.ToInt32(xBox.Text), Convert.ToInt32(yBox.Text));
+                        int x = 1;
+                        char c;
+                        Classes.Point regreso = new Classes.Point(Convert.ToInt32(xBox.Text), Convert.ToInt32(yBox.Text));
+                        while (dialogResult != DialogResult.Yes)
                         {
-                            x = 1;
-                            acertado = regreso;
+                            if (x == 1)
+                                c = 'R';
+                            else if (x == 2)
+                                c = 'L';
+                            else if (x == 3)
+                                c = 'U';
+                            else
+                                c = 'D';
+                            punto = strategy.Hunt(acertado, c);
+                            textBox1.Text = punto.X.ToString() + "," + punto.Y.ToString();
+                            DialogResult d = MessageBox.Show("acerte?");
+                            if (d == DialogResult.Yes)
+                                acertado = punto;
+                            else if (x == 4)
+                            {
+                                x = 1;
+                                acertado = regreso;
+                            }
+                            else
+                                x++;
+                            dialogResult = MessageBox.Show("lo derribe?", "ATENCION", MessageBoxButtons.YesNo);
                         }
-                        else
-                            x++;
-                        dialogResult = MessageBox.Show("lo derribe?", "ATENCION", MessageBoxButtons.YesNo);
+                        //meter el metodo del mensaje
                     }
-                }
-                else
-                {
-                    Classes.Globals.Offense.setValue(Convert.ToInt32(xBox), Convert.ToInt32(yBox), 1);
-                }
-                NextInput();
+                    else
+                    {
+                        Classes.Globals.Offense.setValue(Convert.ToInt32(xBox.Text), Convert.ToInt32(yBox.Text), 1);
+                    }
+                   //metodo a llamar mensaje que pida los las xis y ys que esta tirando el contrincante 
+                    NextInput();
 
+                }
+                catch
+                {
+                    if (xBox.Text == "" && yBox.Text == "")
+                        MessageBox.Show("Falta información");
+                    else
+                        MessageBox.Show("Escribir solo números");
+                }
             }
-            catch
+            else
             {
-                if (xBox.Text == "" && yBox.Text == "")
-                    MessageBox.Show("Falta información");
+                TurnoLabel.Text = "Humano";
+                if(Classes.Globals.Defense.Value(Convert.ToInt32(xBox.Text),Convert.ToInt32(yBox.Text)) == -1)
+                    Classes.Globals.Defense.setValue(Convert.ToInt32(xBox.Text), Convert.ToInt32(yBox.Text),2);
                 else
-                    MessageBox.Show("Escribir solo números");
+                    Classes.Globals.Defense.setValue(Convert.ToInt32(xBox.Text), Convert.ToInt32(yBox.Text), 1);
             }
+            this.Refresh();
+        }
+
+        private bool myTurn()
+        {
+            if (esMiTurno)
+                esMiTurno = false;
+            else
+                esMiTurno = true;
+
+            return !esMiTurno;
         }
 
         private void NextInput()
@@ -487,7 +553,7 @@ namespace Battleship.Formas
 
             }
 
-            textBox1.Text = punto.X.ToString() + "," + punto.Y.ToString();           
+            textBox1.Text = punto.X.ToString() + "," + punto.Y.ToString();
         }
 
         private void button3_Click(object sender, EventArgs e)

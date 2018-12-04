@@ -81,6 +81,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.TurnoLabel = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -128,6 +130,7 @@
             // 
             // GB_Map
             // 
+            this.GB_Map.BackColor = System.Drawing.Color.Transparent;
             this.GB_Map.Location = new System.Drawing.Point(500, 118);
             this.GB_Map.Margin = new System.Windows.Forms.Padding(2);
             this.GB_Map.Name = "GB_Map";
@@ -607,11 +610,31 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // TurnoLabel
+            // 
+            this.TurnoLabel.AutoSize = true;
+            this.TurnoLabel.Location = new System.Drawing.Point(318, 80);
+            this.TurnoLabel.Name = "TurnoLabel";
+            this.TurnoLabel.Size = new System.Drawing.Size(48, 13);
+            this.TurnoLabel.TabIndex = 53;
+            this.TurnoLabel.Text = "Maquina";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(266, 80);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(53, 13);
+            this.label28.TabIndex = 54;
+            this.label28.Text = "Turno de ";
+            // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(736, 749);
+            this.Controls.Add(this.label28);
+            this.Controls.Add(this.TurnoLabel);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -729,5 +752,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox caCB;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label TurnoLabel;
+        private System.Windows.Forms.Label label28;
     }
 }

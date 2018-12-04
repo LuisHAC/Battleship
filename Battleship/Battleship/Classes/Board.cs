@@ -12,7 +12,7 @@ namespace Battleship.Classes
         private int[,] matrix;
         private char type;
         private char[] status;
-        private List<Point> ShootingsLogs;
+        private List<Point> ShootingsLogs = new List<Point>();
         //Type puede ser 'O' para el tablero de ofensiva o 'D' para el defensivo (donde se ponen los barcos)
         public int Value(int row, int column)
         {
