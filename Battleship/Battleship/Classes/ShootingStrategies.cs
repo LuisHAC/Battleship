@@ -44,7 +44,7 @@ namespace Battleship.Classes
         public Point Random()
         {
             Random RNG = new Random();
-            Point point = new Point(RNG.Next(1, 11), RNG.Next(1, 11));
+            Point point = new Point(RNG.Next(0, 10), RNG.Next(0, 9));
             if (!Globals.Offense.Repeated(point))
                 return point;
             else

@@ -37,7 +37,7 @@ namespace Battleship.Formas
         public void Draw(object sender, PaintEventArgs e)
         {
             DoubleBuffered = true;
-            int x = 16, y = 145, x1 = 20, y1 = 410;
+            int x = 520, y = 145, x1 = 20, y1 = 410, x2 = 16, y2 = 145;
             Rectangle square = new Rectangle(x, y, 20, 20);
             Color color = new Color();
             decimal value = new decimal();
@@ -70,13 +70,13 @@ namespace Battleship.Formas
                     if (Carrier.Direction)
                     {
                         square = new Rectangle(xCarrier, yCarrier, 20, 20);
-                        e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
+                        e.Graphics.FillRectangle(new SolidBrush(Color.Gray), square);
                         xCarrier += 20;
                     }
                     else
                     {
                         square = new Rectangle(xCarrier, yCarrier, 20, 20);
-                        e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
+                        e.Graphics.FillRectangle(new SolidBrush(Color.Gray), square);
                         yCarrier += 20;
                     }
                 }
@@ -88,13 +88,13 @@ namespace Battleship.Formas
                     if (Cruiser.Direction)
                     {
                         square = new Rectangle(xCarrier, yCarrier, 20, 20);
-                        e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
+                        e.Graphics.FillRectangle(new SolidBrush(Color.Gray), square);
                         xCarrier += 20;
                     }
                     else
                     {
                         square = new Rectangle(xCarrier, yCarrier, 20, 20);
-                        e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
+                        e.Graphics.FillRectangle(new SolidBrush(Color.Gray), square);
                         yCarrier += 20;
                     }
                 }
@@ -106,13 +106,13 @@ namespace Battleship.Formas
                     if (Destroyer.Direction)
                     {
                         square = new Rectangle(xCarrier, yCarrier, 20, 20);
-                        e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
+                        e.Graphics.FillRectangle(new SolidBrush(Color.Gray), square);
                         xCarrier += 20;
                     }
                     else
                     {
                         square = new Rectangle(xCarrier, yCarrier, 20, 20);
-                        e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
+                        e.Graphics.FillRectangle(new SolidBrush(Color.Gray), square);
                         yCarrier += 20;
                     }
                 }
@@ -124,40 +124,49 @@ namespace Battleship.Formas
                     if (Submarine.Direction)
                     {
                         square = new Rectangle(xCarrier, yCarrier, 20, 20);
-                        e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
+                        e.Graphics.FillRectangle(new SolidBrush(Color.Gray), square);
                         xCarrier += 20;
                     }
                     else
                     {
                         square = new Rectangle(xCarrier, yCarrier, 20, 20);
-                        e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
+                        e.Graphics.FillRectangle(new SolidBrush(Color.Gray), square);
                         yCarrier += 20;
                     }
                 }
 
             }
+            Font font = new Font(new FontFamily("Consolas"), 18, FontStyle.Regular, GraphicsUnit.Pixel);
 
             for (int i = 0; i < 10; i++)
             {
                 for (int j = 0; j < 10; j++)
                 {
 
+                    if (Classes.Globals.Defense.Value(i, j) > 1)
+                    {
+                        square = new Rectangle(x1 + 5, y1 + 5, 10, 10);
+                        e.Graphics.FillRectangle(new SolidBrush(Color.Red), square);
+                    }
                     square = new Rectangle(x1, y1, 20, 20);
                     e.Graphics.DrawRectangle(new Pen(Color.Black), square);
                     square = new Rectangle(x, y, 20, 20);
-                    e.Graphics.FillRectangle(new SolidBrush(Color.Black), square);
-                    e.Graphics.DrawRectangle(new Pen(color), square);
                     value = Classes.Globals.Map.Value(i, j);
                     color = HeatMapColor(value, min, max);
+                    square = new Rectangle(x2, y2, 20, 20);
+                    e.Graphics.DrawRectangle(new Pen(Color.Black), square);
                     square = new Rectangle(x, y, 20, 20);
                     e.Graphics.FillRectangle(new SolidBrush(color), square);
-                    e.Graphics.DrawRectangle(new Pen(color), square);
+                    e.Graphics.DrawRectangle(new Pen(Color.Black), square);
                     x += 20;
                     x1 += 20;
+                    x2 += 20;
                 }
                 y1 += 20;
+                y2 += 20;
+                x2 = 16;
                 y += 20;
-                x = 16;
+                x = 520;
                 x1 = 20;
             }
         }
