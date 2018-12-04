@@ -54,7 +54,7 @@ namespace Battleship.Formas
                     if (Carrier.Direction)
                     {
                         square = new Rectangle(xCarrier, yCarrier, 20, 20);
-                        e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
+                        e.Graphics.FillRectangle(new SolidBrush(Color.Gray), square);
                         xCarrier += 20;
                         if(!yaLosDibuje)
                             Classes.Globals.Defense.setValue(Carrier.X+i, Carrier.Y, -1);
@@ -62,7 +62,7 @@ namespace Battleship.Formas
                     else
                     {
                         square = new Rectangle(xCarrier, yCarrier, 20, 20);
-                        e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
+                        e.Graphics.FillRectangle(new SolidBrush(Color.Gray), square);
                         yCarrier += 20;
                         if (!yaLosDibuje)
                             Classes.Globals.Defense.setValue(Carrier.X, Carrier.Y+i, -1);
@@ -75,7 +75,7 @@ namespace Battleship.Formas
                     if (Carrier.Direction)
                     {
                         square = new Rectangle(xCarrier, yCarrier, 20, 20);
-                        e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
+                        e.Graphics.FillRectangle(new SolidBrush(Color.Gray), square);
                         xCarrier += 20;
                         if (!yaLosDibuje)
                             Classes.Globals.Defense.setValue(Battleship.X + i, Battleship.Y, -1);
@@ -83,7 +83,7 @@ namespace Battleship.Formas
                     else
                     {
                         square = new Rectangle(xCarrier, yCarrier, 20, 20);
-                        e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
+                        e.Graphics.FillRectangle(new SolidBrush(Color.Gray), square);
                         yCarrier += 20;
                         if (!yaLosDibuje)
                             Classes.Globals.Defense.setValue(Battleship.X, Battleship.Y + i, -1);
@@ -97,7 +97,7 @@ namespace Battleship.Formas
                     if (Cruiser.Direction)
                     {
                         square = new Rectangle(xCarrier, yCarrier, 20, 20);
-                        e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
+                        e.Graphics.FillRectangle(new SolidBrush(Color.Gray), square);
                         xCarrier += 20;
                         if (!yaLosDibuje)
                             Classes.Globals.Defense.setValue(Cruiser.X + i, Cruiser.Y, -1);
@@ -105,7 +105,7 @@ namespace Battleship.Formas
                     else
                     {
                         square = new Rectangle(xCarrier, yCarrier, 20, 20);
-                        e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
+                        e.Graphics.FillRectangle(new SolidBrush(Color.Gray), square);
                         yCarrier += 20;
                         if (!yaLosDibuje)
                             Classes.Globals.Defense.setValue(Cruiser.X, Cruiser.Y+i, -1);
@@ -119,7 +119,7 @@ namespace Battleship.Formas
                     if (Destroyer.Direction)
                     {
                         square = new Rectangle(xCarrier, yCarrier, 20, 20);
-                        e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
+                        e.Graphics.FillRectangle(new SolidBrush(Color.Gray), square);
                         xCarrier += 20;
                         if (!yaLosDibuje)
                             Classes.Globals.Defense.setValue(Destroyer.X + i, Destroyer.Y, -1);
@@ -127,7 +127,7 @@ namespace Battleship.Formas
                     else
                     {
                         square = new Rectangle(xCarrier, yCarrier, 20, 20);
-                        e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
+                        e.Graphics.FillRectangle(new SolidBrush(Color.Gray), square);
                         yCarrier += 20;
                         if (!yaLosDibuje)
                             Classes.Globals.Defense.setValue(Destroyer.X, Destroyer.Y+i, -1);
@@ -141,7 +141,7 @@ namespace Battleship.Formas
                     if (Submarine.Direction)
                     {
                         square = new Rectangle(xCarrier, yCarrier, 20, 20);
-                        e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
+                        e.Graphics.FillRectangle(new SolidBrush(Color.Gray), square);
                         xCarrier += 20;
                         if (!yaLosDibuje)
                         {
@@ -152,7 +152,7 @@ namespace Battleship.Formas
                     else
                     {
                         square = new Rectangle(xCarrier, yCarrier, 20, 20);
-                        e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
+                        e.Graphics.FillRectangle(new SolidBrush(Color.Gray), square);
                         yCarrier += 20;
                         if (!yaLosDibuje)
                         {
@@ -180,15 +180,25 @@ namespace Battleship.Formas
                     square = new Rectangle(x, y, 20, 20);
                     e.Graphics.FillRectangle(new SolidBrush(color), square);
                     e.Graphics.DrawRectangle(new Pen(Color.Black), square);
-                    if (Classes.Globals.Defense.Value(i, j) > 0)
+                    if (Classes.Globals.Defense.Value(i, j) == 2)
                     {
                         square = new Rectangle(x1 + 5, y1 + 5, 10, 10);
                         e.Graphics.FillRectangle(new SolidBrush(Color.Red), square);
                     }
-                    if (Classes.Globals.Offense.Value(i, j) > 0)
+                    else if (Classes.Globals.Defense.Value(i, j) == 1)
+                    {
+                        square = new Rectangle(x1 + 5, y1 + 5, 10, 10);
+                        e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
+                    }
+                    if (Classes.Globals.Offense.Value(i, j) == 2)
                     {
                         square = new Rectangle(x2 + 5, y2 + 5, 10, 10);
                         e.Graphics.FillRectangle(new SolidBrush(Color.Red), square);
+                    }
+                    else if (Classes.Globals.Offense.Value(i, j) == 1)
+                    {
+                        square = new Rectangle(x2 + 5, y2 + 5, 10, 10);
+                        e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
                     }
                     x += 20;
                     x1 += 20;
@@ -505,12 +515,13 @@ namespace Battleship.Formas
                     NextInput();
 
                 }
-                catch
+                catch (Exception ex)
                 {
-                    if (xBox.Text == "" && yBox.Text == "")
-                        MessageBox.Show("Falta información");
-                    else
-                        MessageBox.Show("Escribir solo números");
+                    //if (xBox.Text == "" && yBox.Text == "")
+                    //    MessageBox.Show("Falta información");
+                    //else
+                    //    MessageBox.Show("Escribir solo números");
+                    MessageBox.Show(ex.Message);
                 }
             }
             else
@@ -531,7 +542,7 @@ namespace Battleship.Formas
             else
                 esMiTurno = true;
 
-            return !esMiTurno;
+            return esMiTurno;
         }
 
         private void NextInput()
