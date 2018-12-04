@@ -13,13 +13,13 @@ namespace Battleship.Formas
 {
     public partial class GUI : Form
     {
-        Classes.ShootingStrategies strategy;
+        Classes.ShootingStrategies strategy = new Classes.ShootingStrategies();
         Classes.Ship Carrier = new Classes.Ship();
         Classes.Ship Battleship = new Classes.Ship();
         Classes.Ship Cruiser = new Classes.Ship();
         Classes.Ship Destroyer = new Classes.Ship();
         Classes.Ship Submarine = new Classes.Ship();
-
+        public bool winstate = false;
         public bool ShipsLaunched = false;
         public int atinados = 0;
 
@@ -53,13 +53,13 @@ namespace Battleship.Formas
                     if (Carrier.Direction)
                     {
                         square = new Rectangle(xCarrier, yCarrier, 20, 20);
-                        e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
+                        e.Graphics.FillRectangle(new SolidBrush(Color.SlateGray), square);
                         xCarrier += 20;
                     }
                     else
                     {
                         square = new Rectangle(xCarrier, yCarrier, 20, 20);
-                        e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
+                        e.Graphics.FillRectangle(new SolidBrush(Color.SlateGray), square);
                         yCarrier += 20;
                     }
                 }
@@ -70,13 +70,13 @@ namespace Battleship.Formas
                     if (Carrier.Direction)
                     {
                         square = new Rectangle(xCarrier, yCarrier, 20, 20);
-                        e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
+                        e.Graphics.FillRectangle(new SolidBrush(Color.SlateGray), square);
                         xCarrier += 20;
                     }
                     else
                     {
                         square = new Rectangle(xCarrier, yCarrier, 20, 20);
-                        e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
+                        e.Graphics.FillRectangle(new SolidBrush(Color.SlateGray), square);
                         yCarrier += 20;
                     }
                 }
@@ -88,13 +88,13 @@ namespace Battleship.Formas
                     if (Cruiser.Direction)
                     {
                         square = new Rectangle(xCarrier, yCarrier, 20, 20);
-                        e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
+                        e.Graphics.FillRectangle(new SolidBrush(Color.SlateGray), square);
                         xCarrier += 20;
                     }
                     else
                     {
                         square = new Rectangle(xCarrier, yCarrier, 20, 20);
-                        e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
+                        e.Graphics.FillRectangle(new SolidBrush(Color.SlateGray), square);
                         yCarrier += 20;
                     }
                 }
@@ -106,13 +106,13 @@ namespace Battleship.Formas
                     if (Destroyer.Direction)
                     {
                         square = new Rectangle(xCarrier, yCarrier, 20, 20);
-                        e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
+                        e.Graphics.FillRectangle(new SolidBrush(Color.SlateGray), square);
                         xCarrier += 20;
                     }
                     else
                     {
                         square = new Rectangle(xCarrier, yCarrier, 20, 20);
-                        e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
+                        e.Graphics.FillRectangle(new SolidBrush(Color.SlateGray), square);
                         yCarrier += 20;
                     }
                 }
@@ -124,13 +124,13 @@ namespace Battleship.Formas
                     if (Submarine.Direction)
                     {
                         square = new Rectangle(xCarrier, yCarrier, 20, 20);
-                        e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
+                        e.Graphics.FillRectangle(new SolidBrush(Color.SlateGray), square);
                         xCarrier += 20;
                     }
                     else
                     {
                         square = new Rectangle(xCarrier, yCarrier, 20, 20);
-                        e.Graphics.FillRectangle(new SolidBrush(Color.Blue), square);
+                        e.Graphics.FillRectangle(new SolidBrush(Color.SlateGray), square);
                         yCarrier += 20;
                     }
                 }
@@ -253,7 +253,7 @@ namespace Battleship.Formas
                 SqlDataAdapter sda = new SqlDataAdapter(sqlcom);
                 sda.Fill(dt);
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 MessageBox.Show("Error de conexion u.u");
             }
