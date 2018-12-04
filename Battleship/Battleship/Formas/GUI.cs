@@ -22,7 +22,7 @@ namespace Battleship.Formas
         public bool winstate = false;
         public bool ShipsLaunched = false;
         public int atinados = 0;
-
+        public int derrivados = 0;
         public GUI()
         {
             InitializeComponent();
@@ -439,7 +439,7 @@ namespace Battleship.Formas
                             c = 'D';
                         punto = strategy.Hunt(acertado, c);
                         textBox1.Text = punto.X.ToString() + "," + punto.Y.ToString();
-                        DialogResult d = MessageBox.Show("acerte?");
+                        DialogResult d = MessageBox.Show("Acerte! \\^o^/");
                         if (d == DialogResult.Yes)
                             acertado = punto;
                         else if (x == 4)
@@ -450,6 +450,16 @@ namespace Battleship.Formas
                         else
                             x++;
                         dialogResult = MessageBox.Show("lo derribe?", "ATENCION", MessageBoxButtons.YesNo);
+                    }
+                    derrivados++;
+                    if (derrivados >= 5)
+                    {
+                        this.Visible = false;
+                        pictureBox.Visible = true;
+                        System.Threading.Thread.Sleep(5000);
+                        GUI hackfeo = new GUI();
+                        hackfeo.Show();
+                       
                     }
                 }
                 else
